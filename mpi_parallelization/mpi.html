@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+  <TITLE>MPI parallelization</TITLE>
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#CC0000" alink="#FF3300" vlink="#330099">
+
+<h1> Parallel Computing with MPI </h1>
+<h2> Getting started </h2>
+The first step is to get to the place where you can
+run the "hello world" level program
+<a href="test0.hoc">test0.hoc</a>
+by launching in a terminal window with
+<pre>
+mpiexec -n 4 nrniv -mpi test0.hoc
+</pre>
+and see the output
+<pre>
+...
+I am 1 of 4
+I am 3 of 4
+I am 0 of 4
+I am 2 of 4
+</pre>
+<h3> MSWIN </h3>
+The NEURON setup installer has already put all the required software on
+your machine to use MPI.
+<p>
+1) start a bash terminal window<br>
+2) launch the program (mpiexec command above) in the directory containing
+test0.hoc (or give a full path to test0.hoc)
+
+<h3> Mac OS X and Linux </h3>
+Unfortunately MPI can't be a part of the binary installation because I
+don't know if, which, or where MPI was installed on your machine. So you
+have to install MPI yourself, check that it works, and build NEURON from the
+sources with the configure option '--with-paranrn'. See the "installing
+and testing MPI" section of the Hines and Carnevale (2008) paper, "Translating
+network models to parallel hardware in NEURON", J. Neurosci. Meth. 169:
+425-465. The paper is reprinted in your handout booklet. Or see
+<a href="http://senselab.med.yale.edu/modeldb/ShowModel.asp?model=96444">
+the ModelDB entry</a>
+
+<h2> Going further </h2>
+The ring model from the
+<a href="http://senselab.med.yale.edu/modeldb/ShowModel.asp?model=96444">above
+ModelDB entry</a> is a good next step. See also the documentation for the
+<a href="http://www.neuron.yale.edu/neuron/static/docs/help/neuron/neuron/classes/parcon.html">ParallelContext</a>
+class, especialy the subset of methods gathered under the
+<a href="http://www.neuron.yale.edu/neuron/static/docs/help/neuron/neuron/classes/parcon.html#ParallelNetwork">ParallelNetwork<a>
+heading. A large portion of the
+<a href="http://www.neuron.yale.edu/neuron/static/docs/help/neuron/neuron/classes/parnet.html">
+ParallelNetManager</a> wrapper
+is better off done directly from the underlying ParallelContext
+though it can be mined for interesting pieces. A good place to find the
+most recent idioms is the NEURON implementation of the Vogels and Abbott model
+found in the
+<a href="http://senselab.med.yale.edu/modeldb/ShowModel.asp?model=83319">Brette et al. ModelDB entry</a>.
+However, to run in parallel, the NetCon delay between cells needs to be set greater
+than zero.
+
+<P>
+<HR>
+<FONT size = -1>
+<EM>NEURON hands-on course</EM>
+<br>
+<em>Copyright &copy; 1998-2016 by N.T. Carnevale and M.L. Hines,
+all rights reserved.</em>
+</FONT>
+</BODY>
+</HTML>
