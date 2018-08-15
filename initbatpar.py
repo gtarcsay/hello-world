@@ -6,6 +6,8 @@ Edited from VSC
 
 Edited for Pull request
 
+MTA_KOKI
+
 Batch implementation suitable for parallel or serial
 for stimulus current i iterating over a range of values
 run a simulation and report spike frequency
